@@ -1,0 +1,6 @@
+__CONTENT__,3,Why you'll love our shower gel
+Waikiki Beach Coconut,3,13.5
+Hibiscus Paradise,5,13.5
+Strawberry Pound Cake,0,13.5
+Clean Slate,30,14.5
+Forever Red,10,15.5

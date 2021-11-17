@@ -1,0 +1,13 @@
+{
+  "name": "petermorrison-bbw",
+  "version": "1.0.0",
+  "description": "Bath and Body Works - Senior Front End Developer",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Peter Morrison",
+  "license": "ISC",
+  "dependencies": {}
+}
