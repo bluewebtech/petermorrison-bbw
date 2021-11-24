@@ -9,5 +9,7 @@
   },
   "author": "Peter Morrison",
   "license": "ISC",
-  "dependencies": {}
+  "dependencies": {
+    "papaparse": "^5.3.1"
+  }
 }
