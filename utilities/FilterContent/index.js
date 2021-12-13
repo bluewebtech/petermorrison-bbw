@@ -1,3 +1,5 @@
+// Highest to lowest based inb additional param
+
 module.exports = class FilterContent {
   /**
    * The original data to get filtered based on
@@ -18,6 +20,10 @@ module.exports = class FilterContent {
     specials: [],
   };
 
+  orderBy = null;
+
+  sorting = null;
+
   /**
    * The total of available items to get filtered.
    *
@@ -31,9 +37,19 @@ module.exports = class FilterContent {
    * @param {Array} data
    * @return {Void}
    */
-  constructor(data) {
+  constructor(data, options) {
     this.data = data;
     this.total = this.data.length;
+    this.setOptions(options);
+  }
+
+  setOptions(options) {
+    this.orderBy = options.orderBy !== undefined
+      ? options.orderBy
+      : this.orderBy;
+    this.sorting = options.sort !== undefined
+      ? options.sort
+      : this.sorting;
   }
 
   /**
@@ -126,10 +142,19 @@ module.exports = class FilterContent {
    */
   sort() {
     const specials = this.items.specials.sort((a, b) => a[1] - b[1]);
+    const sortedProducts = this.items.products;
+
+    if (this.sorting !== null && this.orderBy !== null) {
+      sortedProducts.sort((a, b) => {
+        return this.sorting === 'asc'
+          ? a[2] - b[2]
+          : b[2] - a[2];
+      });
+    }
 
     specials.forEach((item) => {
       const toEnd = parseInt(item[1]) > this.total;
-      const products = this.items.products;
+      const products = sortedProducts;
 
       if (toEnd) {
         products.push(item);
